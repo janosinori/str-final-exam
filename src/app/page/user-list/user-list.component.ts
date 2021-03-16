@@ -71,5 +71,9 @@ export class UserListComponent implements OnInit {
   onChangeOrder(event: Event):void {
     this.order = (event.target as HTMLInputElement).value;
   }
+
+  changeOrder(key:string):void {
+    this.order = key;
+  }
 }
 

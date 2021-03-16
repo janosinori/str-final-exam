@@ -35,11 +35,11 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Address</th>
-          <th>Active</th>
+          <th (click)="changeOrder('id')">#</th>
+          <th (click)="changeOrder('name')">Name</th>
+          <th (click)="changeOrder('email')">Email</th>
+          <th (click)="changeOrder('address')">Address</th>
+          <th (click)="changeOrder('active')">Active</th>
           <th></th>
         </tr>
       </thead>
