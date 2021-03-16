@@ -18,5 +18,54 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+ 
+  deleteItem(id: number): void {
+    this.userService.remove(id).subscribe(
+      () => {
+        this.userService.getAll();
+      }
+    );
+  }
 
+  updateItem(user: User): void {
+    this.userService.update(user).subscribe(
+      () => {
+        this.userService.getAll();
+      }
+    );
+  }
+
+  createItem(user: User): void {
+    this.userService.add(user).subscribe(
+      () => {
+        this.userService.getAll();
+      }
+    );
+  }
+
+ subscribeForDeleteItem: User = new User();
+
+   subscribeForDelete(user:User): void{
+    this.subscribeForDeleteItem = user;
+    const r=confirm("Biztos abban, hogy kitörli?");
+    if (r == true){
+      this.delete();
+    }
+  }
+
+  delete(): void{
+   this.userService.remove(this.subscribeForDeleteItem.id);
+  }
+
+ /*  onChangePhrase(event: Event):void {
+    this.phrase = (event.target as HTMLInputElement).value;
+  }
+  onChangeKey(event: Event):void {
+    this.key = (event.target as HTMLInputElement).value;
+    this.phrase = '';
+  }
+  onChangeOrder(event: Event):void {
+    this.order = (event.target as HTMLInputElement).value;
+  } */
 }
+
