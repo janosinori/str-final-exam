@@ -57,7 +57,11 @@ export class UserListComponent implements OnInit {
    this.userService.remove(this.subscribeForDeleteItem.id);
   }
 
- /*  onChangePhrase(event: Event):void {
+  phrase: string = '';
+  key: string = 'name';
+  order: string = '';
+  
+ onChangePhrase(event: Event):void {
     this.phrase = (event.target as HTMLInputElement).value;
   }
   onChangeKey(event: Event):void {
@@ -66,6 +70,6 @@ export class UserListComponent implements OnInit {
   }
   onChangeOrder(event: Event):void {
     this.order = (event.target as HTMLInputElement).value;
-  } */
+  }
 }
 

@@ -5,16 +5,13 @@
     <div class="row d-flex justify-content-end">
       <div class="row d-flex justify-content-end">
         <label for="search" class="mr-2">Szűrés: </label>
-        <input id="search">
-        <!--(keyup)="onChangePhrase($event)" class="form-control mr-sm-2" type="text" placeholder="Search" [value]="phrase">
+        <input id="search"(keyup)="onChangePhrase($event)" class="form-control mr-sm-2" type="text" placeholder="Search" [value]="phrase">
       </div>
     </div>
-    <div class="row d-flex justify-content-end">
+    <!-- <div class="row d-flex justify-content-end">
       <form class="form-inline m-2">
           <div class="form-group">
               <div class="form-group row">
-                  <label for="search" class="mr-2">Szűrés: </label>
-                  <input id="search" (keyup)="onChangePhrase($event)" class="form-control mr-sm-2" type="text" placeholder="Search" [value]="phrase">
                   <label for="search" class="mr-2">Rendezés: </label>
                   <select name="" id="order" class="form-control mr-sm-2" (change)="onChangeOrder($event)">
                       <option value="id"></option>
@@ -47,7 +44,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users$ | async">
+        <tr *ngFor="let user of users$ | async | filter:phrase:key | sorter:order">
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
